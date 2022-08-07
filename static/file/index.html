@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File</title>
+    <link rel="stylesheet" href="../lib/main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <m-button>Home</m-button>
+    </div>
+    <div class="box">
+      <video id="video" src="../lib/demo.mkv" controls autoplay muted></video>
+    </div>
+    <div class="box">
+      <m-button id="delete">Delete</m-button><m-button id="save">Save</m-button
+      ><m-button id="next">Next</m-button>
+    </div>
+    <div class="box">
+      <m-text-input type="filled" placeholder="Name" id="name"></m-text-input>
+    </div>
+    <div class="box" id="tags">
+      <m-button class="tag">Dancing</m-button>
+    </div>
+    <script src="../lib/guiLoader.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

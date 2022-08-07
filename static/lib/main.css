@@ -1,0 +1,26 @@
+:root {
+  --gap: 10px;
+}
+
+body {
+  background-color: #9da9a0;
+}
+
+.box {
+  background-color: #c0caad;
+  padding: var(--gap);
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+}
+
+video {
+  width: 100%;
+}
+
+.tag {
+  border-radius: 30px;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid var(--accentColor);
+}
