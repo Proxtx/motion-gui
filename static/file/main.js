@@ -5,13 +5,18 @@ if (window.guiLoaded) await new Promise((r) => window.guiLoaded.push(r));
 
 let video = document.getElementById("video");
 let played = false;
+let playbackRate = localStorage.playbackSpeed
+  ? Number(localStorage.playbackSpeed)
+  : 1;
 
 try {
   await video.play();
+  video.playbackRate = playbackRate;
 } catch {
   window.addEventListener("click", () => {
     if (!played) video.play();
     played = true;
+    video.playbackRate = playbackRate;
   });
 }
 
@@ -26,7 +31,6 @@ if (localStorage.mode == "query") {
     alert("Noting was found!");
     location.pathname = "../query";
   }
-  console.log(res);
   applyFile(res.data, res.file, res.perm);
   nextObj.next = () => {
     data.skip++;

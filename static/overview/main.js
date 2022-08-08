@@ -8,3 +8,12 @@ window.indexPosts = async () => {
   localStorage.mode = "index";
   location.pathname = "./file";
 };
+
+let playbackSpeed = document.getElementById("playbackSpeed");
+
+if (!localStorage.playbackSpeed) localStorage.playbackSpeed = 1;
+playbackSpeed.setAttribute("value", localStorage.playbackSpeed);
+
+window.savePlaybackSpeed = () => {
+  localStorage.playbackSpeed = playbackSpeed.component.value;
+};

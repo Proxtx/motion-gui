@@ -17,6 +17,17 @@
       <m-button onclick="window.queryPosts()">Query Posts</m-button>
     </div>
     <div class="box">
+      <m-text-input
+        type="filled"
+        number="true"
+        placeholder="Playback Speed"
+        id="playbackSpeed"
+      ></m-text-input>
+      <br /><m-button onclick="window.savePlaybackSpeed()" class="right"
+        >Save</m-button
+      >
+    </div>
+    <div class="box">
       <m-text>@proxtx/framework</m-text
       ><m-text
         ><a href="https://github.com/Proxtx/motion-gui">GitHub</a></m-text
