@@ -1,7 +1,12 @@
 :host {
   --accentColor: #cec075;
+  --accentColorTransparent: #cec07503;
 }
 
 a {
   color: #654c4f;
+}
+
+#wrap.wrapFilled {
+  width: 100%;
 }

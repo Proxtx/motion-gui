@@ -8,8 +8,11 @@ import { resolve } from "path";
 export const nextIndexFile = async (pwd) => {
   if (!auth(pwd)) return;
   let file = await getFileToIndex();
-  let perm = registerFilePerm(config.path + file);
-  return { data: (await index.index)[file], file, perm };
+  let perm = registerFilePerm(config.path + file.file);
+  let indexInfo = (await index.index)[file.file];
+  if (!indexInfo) indexInfo = {};
+  if (!indexInfo.time) indexInfo.time = file.time;
+  return { data: indexInfo, file: file.file, perm };
 };
 
 export const tags = async (pwd) => {
@@ -20,7 +23,6 @@ export const tags = async (pwd) => {
 export const saveData = async (pwd, fileName, data) => {
   if (!auth(pwd)) return;
   (await index.index)[fileName] = data;
-  console.log((await index.index)[fileName]);
   return { success: true };
 };
 

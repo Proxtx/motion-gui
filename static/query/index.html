@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query</title>
+    <link rel="stylesheet" href="../lib/main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <m-text-input
+        type="filled"
+        placeholder="Name Filter"
+        id="filter"
+      ></m-text-input>
+    </div>
+    <div class="box" id="tags"></div>
+    <div class="box">
+      <div id="sortingButtonsWrap"></div>
+      <div id="reverseWrap">
+        <m-checkbox id="reverse"></m-checkbox><m-text>Reverse</m-text>
+      </div>
+    </div>
+    <div class="box">
+      <m-text-input
+        type="filled"
+        placeholder="Skip"
+        number="true"
+        value="0"
+        id="skip"
+      ></m-text-input
+      ><m-button id="reset">Reset</m-button><br /><br /><m-button
+        id="go"
+        class="right"
+        >Go</m-button
+      >
+    </div>
+    <script src="../lib/guiLoader.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

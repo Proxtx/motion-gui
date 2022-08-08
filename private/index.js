@@ -12,9 +12,7 @@ class Index {
           await fs.readFile(config.path + "/index.json")
         );
       } catch {
-        this.indexContent = {
-          index: {},
-        };
+        this.indexContent = {};
       }
     })();
 
@@ -23,7 +21,7 @@ class Index {
 
   async saveLoop() {
     await this.saveIndex();
-    setTimeout(() => this.saveLoop(), 1000 /*600000*/);
+    setTimeout(() => this.saveLoop(), 600000);
   }
 
   get index() {
@@ -69,7 +67,6 @@ export const allFiles = async () => {
   await Promise.all(promises);
 
   files = files.sort((a, b) => a.time - b.time);
-  files = files.map((file) => file.file);
 
   return files;
 };
@@ -77,6 +74,7 @@ export const allFiles = async () => {
 export const getFileToIndex = async () => {
   let files = await allFiles();
   for (let file of files) {
-    if (!(await index.index)[file] && file != "index.json") return file;
+    if (!(await index.index)[file.file] && file.file != "index.json")
+      return file;
   }
 };

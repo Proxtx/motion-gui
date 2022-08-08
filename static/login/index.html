@@ -4,22 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>File</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../lib/main.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="box">
-      <video id="video" src="" controls autoplay muted></video>
+      <m-text><h1>Login</h1></m-text>
+      <m-text-input
+        type="filled"
+        placeholder="Password"
+        id="password"
+      ></m-text-input>
     </div>
-    <div class="box">
-      <m-button id="delete">Delete</m-button><m-button id="save">Save</m-button
-      ><m-button id="next" class="right">Next</m-button>
-    </div>
-    <div class="box">
-      <m-text-input type="filled" placeholder="Name" id="name"></m-text-input>
-    </div>
-    <div class="box" id="tags"></div>
+    <div class="box"><m-button class="right" id="login">Login</m-button></div>
     <script src="../lib/guiLoader.js" type="module"></script>
     <script src="main.js" type="module"></script>
   </body>

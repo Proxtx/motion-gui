@@ -4,8 +4,44 @@
   "pwd": "1234",
   "tags": [
     {
-      "name": "dancing",
-      "color": "green"
+      "name": "Tag1",
+      "color": "pink"
+    },
+    {
+      "name": "Tag2",
+      "color": "#97ff97"
+    },
+    {
+      "name": "Tag3",
+      "color": "#e76565"
+    },
+    {
+      "name": "Tag4",
+      "color": "yellow"
+    },
+    {
+      "name": "Tag5",
+      "color": "violet"
+    },
+    {
+      "name": "Tag6",
+      "color": "#acacff"
+    },
+    {
+      "name": "Tag7",
+      "color": "#f729f7"
+    },
+    {
+      "name": "Tag8",
+      "color": "#0ca9b7"
+    },
+    {
+      "name": "Tag9",
+      "color": "#40b70c"
+    },
+    {
+      "name": "Tag10",
+      "color": "rgb(255, 154, 154)"
     }
   ]
 }

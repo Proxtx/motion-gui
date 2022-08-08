@@ -4,6 +4,7 @@ const filePerms = {};
 
 export const server = async (document, options) => {
   deleteOldFilePerms();
+  if (!filePerms[options.req.query.perm]) return;
   options.res.send(await fs.readFile(filePerms[options.req.query.perm].file));
 };
 
