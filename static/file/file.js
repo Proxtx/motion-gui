@@ -7,6 +7,7 @@ let globalFileName;
 const tagsWrap = document.getElementById("tags");
 const video = document.getElementById("video");
 const name = document.getElementById("name");
+const time = document.getElementById("time");
 name.addEventListener("change", () => {
   globalData.name = name.component.value;
 });
@@ -35,6 +36,7 @@ export const applyFile = (data, file, filePerm) => {
   name.component.value = data.name;
   data.selectedTags = data.selectedTags ? data.selectedTags : [];
   video.src = "/file.route/?perm=" + filePerm;
+  time.innerText = new Date(data.time).toLocaleString();
 
   createTags(data.selectedTags, tagsWrap);
 };
