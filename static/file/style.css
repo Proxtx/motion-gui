@@ -1,3 +1,13 @@
-#delete {
+.delete {
   --accentColor: rgb(255, 159, 159);
+}
+
+#timeStamp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#deleteSegment {
+  display: none;
 }

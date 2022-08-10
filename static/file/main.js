@@ -1,5 +1,5 @@
 import { file, publicSortingInterface } from "../lib/apiLoader.js";
-import { applyFile, nextObj } from "./file.js";
+import { applyFile, nextObj, deleteFile } from "./file.js";
 
 if (window.guiLoaded) await new Promise((r) => window.guiLoaded.push(r));
 
@@ -43,6 +43,28 @@ if (localStorage.mode == "query") {
     alert("All done!");
     location.pathname = "../";
   }
+
+  let deleteSegment = document.getElementById("deleteSegment");
+  deleteSegment.style.display = "block";
+  deleteSegment.addEventListener("click", () => {
+    localStorage.deleteSegment = res.data.time;
+    nextObj.next();
+  });
+
+  video.addEventListener("loadeddata", async () => {
+    if (
+      localStorage.deleteSegment &&
+      res.data.time - localStorage.deleteSegment <= 1000 * 60 * 5
+    ) {
+      localStorage.deleteSegment = res.data.time;
+      await deleteFile();
+      nextObj.next();
+    } else if (Math.floor(video.duration) <= 2) {
+      await deleteFile();
+      nextObj.next();
+    }
+  });
+
   applyFile(res.data ? res.data : {}, res.file, res.perm);
   nextObj.next = () => {
     location.pathname = location.pathname;

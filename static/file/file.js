@@ -38,12 +38,6 @@ export const applyFile = (data, file, filePerm) => {
   video.src = "/file.route/?perm=" + filePerm;
   time.innerText = new Date(data.time).toLocaleString();
 
-  video.addEventListener("loadeddata", async () => {
-    if (Math.floor(video.duration) <= 2) {
-      await deleteFile();
-      nextObj.next();
-    }
-  });
   createTags(data.selectedTags, tagsWrap);
 };
 
