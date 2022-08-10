@@ -40,6 +40,7 @@ if (localStorage.mode == "query") {
 } else {
   let res = await file.nextIndexFile(cookie.pwd);
   if (!res || !res.data) {
+    localStorage.removeItem("deleteSegment");
     alert("All done!");
     location.pathname = "../";
   }
