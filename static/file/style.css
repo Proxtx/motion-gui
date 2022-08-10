@@ -1,7 +1,3 @@
-.delete {
-  --accentColor: rgb(255, 159, 159);
-}
-
 #timeStamp {
   display: flex;
   align-items: center;

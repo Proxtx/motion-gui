@@ -33,3 +33,7 @@ video {
 .right {
   float: right;
 }
+
+.warn {
+  --accentColor: rgb(255, 159, 159);
+}

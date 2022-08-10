@@ -9,6 +9,11 @@ window.indexPosts = async () => {
   location.pathname = "./file";
 };
 
+window.stopDeleteSegment = () => {
+  localStorage.removeItem("deleteSegment");
+  window.indexPosts();
+};
+
 let playbackSpeed = document.getElementById("playbackSpeed");
 
 if (!localStorage.playbackSpeed) localStorage.playbackSpeed = 1;
