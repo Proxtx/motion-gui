@@ -19,7 +19,7 @@ export const query = async (sortBy, reverse, filter, tags) => {
   let fileNames = Object.keys(indexInstance);
   if (filter)
     fileNames = fileNames.filter((value) =>
-      indexInstance[value].name.includes(filter)
+      indexInstance[value].name.toUpperCase().includes(filter.toUpperCase())
     );
   fileNames = fileNames.sort(sortOptions[sortBy]);
   if (reverse) fileNames = fileNames.reverse();
