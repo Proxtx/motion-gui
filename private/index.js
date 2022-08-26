@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import config from "@proxtx/config";
+import { setCounter } from "./stats.js";
 
 class Index {
   indexContent;
@@ -68,11 +69,18 @@ export const allFiles = async () => {
 
   files = files.sort((a, b) => a.time - b.time);
 
+  setCounter("files", files.length);
+
   return files;
 };
 
 export const getFileToIndex = async () => {
   let files = await allFiles();
+  setCounter(
+    "files to index",
+    files.length - Object.keys(await index.index).length - 1
+  );
+  setCounter("indexed files", Object.keys(await index.index).length);
   for (let file of files) {
     if (!(await index.index)[file.file] && file.file != "index.json")
       return file;

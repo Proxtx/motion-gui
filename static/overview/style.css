@@ -1,0 +1,8 @@
+.stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+  border: 0.2px solid black;
+  padding: 5px;
+}
