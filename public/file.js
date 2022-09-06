@@ -30,6 +30,7 @@ export const deleteFile = async (pwd, fileName) => {
   if (!auth(pwd) || !isSubdirectory(config.path + fileName, config.path))
     return;
   await fs.unlink(config.path + fileName);
+  if ((await index.index)[fileName]) delete (await index.index)[fileName];
 };
 
 const isSubdirectory = (path, folder) => {
