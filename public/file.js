@@ -1,4 +1,4 @@
-import { getFileToIndex, index } from "../private/index.js";
+import { getFileToIndex, index, getNewestFile } from "../private/index.js";
 import config from "@proxtx/config";
 import { auth } from "./auth.js";
 import { registerFilePerm } from "../private/render/file.js";
@@ -8,6 +8,16 @@ import { resolve } from "path";
 export const nextIndexFile = async (pwd) => {
   if (!auth(pwd)) return;
   let file = await getFileToIndex();
+  let perm = registerFilePerm(config.path + file.file);
+  let indexInfo = (await index.index)[file.file];
+  if (!indexInfo) indexInfo = {};
+  if (!indexInfo.time) indexInfo.time = file.time;
+  return { data: indexInfo, file: file.file, perm };
+};
+
+export const newestFile = async (pwd) => {
+  if (!auth(pwd)) return;
+  let file = await getNewestFile();
   let perm = registerFilePerm(config.path + file.file);
   let indexInfo = (await index.index)[file.file];
   if (!indexInfo) indexInfo = {};
@@ -27,10 +37,11 @@ export const saveData = async (pwd, fileName, data) => {
 };
 
 export const deleteFile = async (pwd, fileName) => {
-  if (!auth(pwd) || !isSubdirectory(config.path + fileName, config.path))
-    return;
-  await fs.unlink(config.path + fileName);
+  if (!auth(pwd)) return;
   if ((await index.index)[fileName]) delete (await index.index)[fileName];
+
+  if (!isSubdirectory(config.path + fileName, config.path)) return;
+  await fs.unlink(config.path + fileName);
 };
 
 const isSubdirectory = (path, folder) => {

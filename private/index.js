@@ -86,3 +86,8 @@ export const getFileToIndex = async () => {
       return file;
   }
 };
+
+export const getNewestFile = async () => {
+  let files = await allFiles();
+  return files[file.length - 1];
+};
