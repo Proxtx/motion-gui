@@ -55,6 +55,7 @@ export const allFiles = async () => {
   let promises = [];
 
   for (let fileName of fileNames) {
+    if (fileName.split(".")[1] == "json") continue;
     promises.push(
       (async () => {
         files.push({
