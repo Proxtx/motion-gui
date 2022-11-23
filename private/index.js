@@ -79,7 +79,7 @@ export const getFileToIndex = async () => {
   let files = await allFiles();
   setCounter(
     "files to index",
-    files.length - Object.keys(await index.index).length - 1
+    files.length - Object.keys(await index.index).length
   );
   setCounter("indexed files", Object.keys(await index.index).length);
   for (let file of files) {
