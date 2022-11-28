@@ -1,3 +1,12 @@
+import { auth } from "../lib/apiLoader.js";
+
+const liveIframe = document.getElementById("liveIframe");
+const liveBox = document.getElementById("liveBox");
+
+let liveView = await auth.liveView(cookie.pwd);
+if (liveView) liveIframe.src = liveView;
+else liveBox.style.display = "none";
+
 window.queryPosts = async () => {
   await new Promise((r) => setTimeout(r, 500));
   location.pathname = "./query";

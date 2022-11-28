@@ -7,3 +7,8 @@ export const auth = (pwd) => {
   if (!auth) increaseCounter("failed auth");
   return auth;
 };
+
+export const liveView = (pwd) => {
+  if (!auth(pwd)) return;
+  return config.liveView;
+};

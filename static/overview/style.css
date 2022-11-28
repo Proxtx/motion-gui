@@ -6,3 +6,10 @@
   border: 0.2px solid black;
   padding: 5px;
 }
+
+#liveIframe {
+  border: none;
+  border-radius: var(--borderRadius);
+  width: 100%;
+  aspect-ratio: 3/2;
+}
